@@ -77,10 +77,10 @@
   
   const onNewValue = (nombreProyecto: string) => {
     const nuevoProyecto = proyectosStore.agregarProyecto(nombreProyecto);
-    modalOpen.value = false; // Cierra el modal después de agregar un nuevo proyecto
-    // Redirigir al nuevo proyecto
+    modalOpen.value = false;
+  
     if (nuevoProyecto) {
-      // Asumiendo que `nuevoProyecto` tiene una propiedad `id`
+  
       this.$router.push({ name: 'proyectoID', params: { id: nuevoProyecto.id } });
     }
   }
@@ -88,7 +88,7 @@
   const calcularProgreso = (proyecto) => {
     if (proyecto.tareas.length === 0) return 0; // Si no hay tareas, el progreso es 0
     const tareasCompletadas = proyecto.tareas.filter(tarea => tarea.completada).length;
-    return (tareasCompletadas / proyecto.tareas.length) * 100; // Calcula el porcentaje
+    return (tareasCompletadas / proyecto.tareas.length) * 100; // Calcula el porcentaje de avance
   };
   
   </script>
